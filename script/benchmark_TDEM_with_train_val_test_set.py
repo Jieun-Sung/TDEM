@@ -44,8 +44,15 @@ args.hidden_dims = [int(dim) for dim in args.hidden_dims]
 datadir = f'./data'           # can be downloaded from google drive link in github repo
 outputdir = f'./output/benchmark/TDEM_{args.uniprot_embed_method}/{args.cell}'
 
+if not os.path.exists(datadir):
+    raise FileNotFoundError(f"Data directory not found: {datadir}, first download the data from the provided link in the GitHub repository.")
+
+if os.path.exists(outputdir):
+    print(f"Output directory {outputdir} already exists. Overwriting existing files.")
+
 if not os.path.exists(outputdir):
     os.makedirs(outputdir)
+    print(f"Created output directory: {outputdir}")
 
 hyperparam_file = f'{outputdir}/Hyperparameter.txt'
 loss_file = f'{outputdir}/losses.txt'
@@ -62,12 +69,19 @@ print(args)
 ### LOAD DATA 
 ###========================================================
 
-de = pd.read_pickle(f'{datadir}/CMAP_03_level5_trp_cp_{args.cell}_known_target_cid.pkl')
+try:
+    de = pd.read_pickle(f'{datadir}/CMAP_03_level5_trp_cp_{args.cell}_known_target_cid.pkl')
+except FileNotFoundError:
+    raise FileNotFoundError(f"DE file not found for cell line: {args.cell}")
+
 de.pubchem_cid = de.pubchem_cid.astype(int)
 de = de[de.qc_pass == 1]
 
 #--------------------------------------------------------
 # DTI matched with other benchmark tools (SSGCN, FRoGS)
+
+if not os.path.exists(f'{datadir}/benchmark_DTI_dataset/{args.cell}'):
+    raise FileNotFoundError(f"DTI dataset not found for cell line: {args.cell}. Please ensure the dataset is available in {datadir}/benchmark_DTI_dataset/{args.cell}")
 
 train_dti = pd.read_csv(f'{datadir}/benchmark_DTI_dataset/{args.cell}/TDEM_train_dti.tsv', sep = '\t')
 val_dti = pd.read_csv(f'{datadir}/benchmark_DTI_dataset/{args.cell}/TDEM_val_dti.tsv', sep = '\t')
