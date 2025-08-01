@@ -1,4 +1,11 @@
 # TDEM
+We introduce TDEM (Target-
+induced Differential Expression Matrix), a novel computational framework that generates in silico target-perturbed
+expression profiles from drug-induced transcriptomic data. TDEM circumvents experimental noise by learning target
+representations computationally rather than relying on confounded genetic perturbation data. 
+
+![Model architecture](./figures/tdem_model_architecture.png)
+
 
 ## Installation
 
