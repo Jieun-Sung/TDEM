@@ -92,7 +92,7 @@ All data used for model training, the pretrained models for six cell lines (A375
   - Main options:
     - `--DTI_dataset_dir`: Directory containing DTI train/val/test datasets (default: `./data/benchmark_DTI_dataset`)
     - `--output_dir`: Directory for outputs (default: `./output/benchmark/TDEM`)
-    - `--ablation_mode`: Model ablation (`full`, `no_gat`, `no_pretrained`, `no_correlation`, `no_dot_product`)
+    - `--ablation_mode`: Model ablation (`full`, `no_gat`, `no_pretrained`)
     - `--uniprot_embed_method`: Protein embedding method (`esm2`, `protbert`, `gene2vec`)
     - `--device_num`: GPU device index
     - `--random_seed`: Random seed for reproducibility
@@ -108,7 +108,7 @@ All data used for model training, the pretrained models for six cell lines (A375
     - `--gene_space`: Gene set to use (`best_inferred`, `all`, etc.)
 
   - Output:
-    - Model checkpoints, logs, and performance results will be saved in the specified `outpu
+    - Model checkpoints, logs, and performance results will be saved in the specified `output_dir`.
 
 ## Citation
 
