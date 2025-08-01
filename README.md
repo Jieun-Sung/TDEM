@@ -18,7 +18,7 @@
 
 ## Data
 
-All data used for model training and the pretrained model for 6 cell lines (A375, A549, HT29, HA1E, MCF7 and PC3) and the comprehensive TDEM dataset can be downloaded from the Google Drive link below:
+All data used for model training, the pretrained models for six cell lines (A375, A549, HT29, HA1E, MCF7, and PC3), and the comprehensive TDEM dataset can be downloaded from the following link: 
 [Google Drive](https://drive.google.com/drive/folders/1rnlX_vkhixhHDbbmGSW5WDtSUSMvndHc?usp=drive_link)
 
 
