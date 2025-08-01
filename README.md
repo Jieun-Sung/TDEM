@@ -110,6 +110,27 @@ All data used for model training, the pretrained models for six cell lines (A375
   - Output:
     - Model checkpoints, logs, and performance results will be saved in the specified `output_dir`.
 
+## Generation of TDEM from Pretrained model
+
+After preprocessing and generating protein sequence embeddings (`<prefix>_<PLM>_embeddings.tsv.gz`), you can predict cell line-specific TDEM (Target-Gene Expression Matrix) for novel protein sequences using a pretrained TDEM model.
+
+- **Script:** `get_TDEM_from_novel_sequence_embed.py`
+- **Usage:**
+    ```bash
+    python get_TDEM_from_novel_sequence_embed.py \
+        --input_embed_file /path/to/<prefix>_<PLM>_embeddings.tsv.gz \
+        --save_dir /path/to/output \
+        --prefix test \
+        --cell A549 \
+        --best_model_path /path/to/best_model.pt \
+        --batch_size 1000
+    ```
+
+- **Description:**
+    - After obtaining embeddings via preprocessing, you can use this script to generate TDEM predictions for any novel protein sequence, specific to each cell line.
+    - The resulting TE matrix will be saved as `test_<cell>_TE_matrix.csv` in the specified output directory.
+
+
 ## Citation
 
 [If applicable, add citation information or links to relevant papers.]
