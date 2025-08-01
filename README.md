@@ -124,7 +124,8 @@ After preprocessing and generating protein sequence embeddings (`<prefix>_<PLM>_
         --prefix test \
         --cell A549 \
         --best_model_path /path/to/best_model.pt \
-        --batch_size 1000
+        --batch_size 1000 \
+        --device_num 0 
     ```
 
 - **Description:**
