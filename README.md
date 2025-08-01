@@ -10,7 +10,7 @@ representations computationally rather than relying on confounded genetic pertur
 
 - [Installation](#installation)
 - [Preprocessing](#preprocessing)
-- [Usage](#usage)
+- [Training](#Training)
 - [Data](#data)
 - [Citation](#citation)
 
@@ -61,11 +61,54 @@ All data used for model training, the pretrained models for six cell lines (A375
   - Input: TSV file of protein sequences (output of previous step)
   - Output: `<prefix>_esm2_embeddings.tsv.gz` in the specified output directory
 
+## Training
 
+- **Train and evaluate the TDEM model**
 
-## Usage
+  - Script: `benchmark_TDEM_with_train_val_test_set.py`
+  - Usage:
+    ```bash
+    python benchmark_TDEM_with_train_val_test_set.py \
+        --cell A549 \
+        --DTI_dataset_dir ./data/benchmark_DTI_dataset \
+        --output_dir ./output/benchmark/TDEM \
+        --ablation_mode full \
+        --uniprot_embed_method esm2 \
+        --device_num 0 \
+        --random_seed 42 \
+        --max_num_epochs 300 \
+        --lr 1e-5 \
+        --dropout 0.1 \
+        --l2norm 1e-5 \
+        --hidden_dims 512 256 512 \
+        --graph_node_embed_dim 32 \
+        --batch_size 250 \
+        --gat_num_heads 3 \
+        --early_stopping_patience 5 \
+        --gene_space best_inferred
+    ```
+  - Required arguments:
+    - `--cell`: Cell line to use (`A375`, `A549`, `MCF7`, `PC3`, `HT29`, or `HA1E`)
+  - Main options:
+    - `--DTI_dataset_dir`: Directory containing DTI train/val/test datasets (default: `./data/benchmark_DTI_dataset`)
+    - `--output_dir`: Directory for outputs (default: `./output/benchmark/TDEM`)
+    - `--ablation_mode`: Model ablation (`full`, `no_gat`, `no_pretrained`, `no_correlation`, `no_dot_product`)
+    - `--uniprot_embed_method`: Protein embedding method (`esm2`, `protbert`, `gene2vec`)
+    - `--device_num`: GPU device index
+    - `--random_seed`: Random seed for reproducibility
+    - `--max_num_epochs`: Maximum training epochs (default: 300)
+    - `--lr`: Learning rate (default: 1e-5)
+    - `--dropout`: Dropout rate (default: 0.1)
+    - `--l2norm`: L2 regularization strength (default: 1e-5)
+    - `--hidden_dims`: Hidden layer sizes (space-separated, e.g., `512 256 512`)
+    - `--graph_node_embed_dim`: Node embedding size in GAT module (default: 32)
+    - `--batch_size`: Batch size (default: 250)
+    - `--gat_num_heads`: Number of GAT attention heads (default: 3)
+    - `--early_stopping_patience`: Early stopping patience (default: 5)
+    - `--gene_space`: Gene set to use (`best_inferred`, `all`, etc.)
 
-[Add instructions for how to use your project, such as example commands, script usage, etc.]
+  - Output:
+    - Model checkpoints, logs, and performance results will be saved in the specified `outpu
 
 ## Citation
 
