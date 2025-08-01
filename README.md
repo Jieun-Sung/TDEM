@@ -90,7 +90,7 @@ All data used for model training, the pretrained models for six cell lines (A375
   - Required arguments:
     - `--cell`: Cell line to use (`A375`, `A549`, `MCF7`, `PC3`, `HT29`, or `HA1E`)
   - Main options:
-    - `--DTI_dataset_dir`: Directory containing DTI train/val/test datasets (default: `./data/benchmark_DTI_dataset`)
+  - `--DTI_dataset_dir`: Directory containing DTI train/val/test datasets (default: `./data/benchmark_DTI_dataset`). Each file must contain three columns: `CID`, `UniProt`, and `Binding`.  If needed, you may need to update the DTI file names directly in the training script.
     - `--output_dir`: Directory for outputs (default: `./output/benchmark/TDEM`)
     - `--ablation_mode`: Model ablation (`full`, `no_gat`, `no_pretrained`)
     - `--uniprot_embed_method`: Protein embedding method (`esm2`, `protbert`, `gene2vec`)
