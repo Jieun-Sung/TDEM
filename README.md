@@ -11,7 +11,7 @@ representations computationally rather than relying on confounded genetic pertur
 - [Installation](#installation)
 - [Preprocessing](#preprocessing)
 - [Training](#Training)
-- [Generation of TDEM from Pretrained model](#Generation of TDEM from Pretrained model)
+- [Generation of TDEM from Pretrained model](#Generation_of_TDEM_from_Pretrained_model)
 - [Data](#data)
 - [Citation](#citation)
 
@@ -111,7 +111,7 @@ All data used for model training, the pretrained models for six cell lines (A375
   - Output:
     - Model checkpoints, logs, and performance results will be saved in the specified `output_dir`.
 
-## Generation of TDEM from Pretrained model
+## Generation_of_TDEM_from_Pretrained_model
 
 After preprocessing and generating protein sequence embeddings (`<prefix>_<PLM>_embeddings.tsv.gz`), you can predict cell line-specific TDEM (Target-Gene Expression Matrix) for novel protein sequences using a pretrained TDEM model.
 
