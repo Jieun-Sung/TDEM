@@ -26,6 +26,11 @@ representations computationally rather than relying on confounded genetic pertur
     ```bash
     conda activate TDEM
     ```
+    
+## Data
+
+All data used for model training, the pretrained models for six cell lines (A375, A549, HT29, HA1E, MCF7, and PC3), and the comprehensive TDEM dataset can be downloaded from the following link: 
+[Google Drive](https://drive.google.com/drive/folders/1rnlX_vkhixhHDbbmGSW5WDtSUSMvndHc?usp=drive_link)
 
 ## Preprocessing
 
@@ -56,10 +61,6 @@ representations computationally rather than relying on confounded genetic pertur
   - Input: TSV file of protein sequences (output of previous step)
   - Output: `<prefix>_esm2_embeddings.tsv.gz` in the specified output directory
 
-## Data
-
-All data used for model training, the pretrained models for six cell lines (A375, A549, HT29, HA1E, MCF7, and PC3), and the comprehensive TDEM dataset can be downloaded from the following link: 
-[Google Drive](https://drive.google.com/drive/folders/1rnlX_vkhixhHDbbmGSW5WDtSUSMvndHc?usp=drive_link)
 
 
 ## Usage
