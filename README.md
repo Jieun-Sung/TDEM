@@ -11,6 +11,7 @@ representations computationally rather than relying on confounded genetic pertur
 - [Installation](#installation)
 - [Preprocessing](#preprocessing)
 - [Training](#Training)
+- [Generation of TDEM from Pretrained model](#Generation of TDEM from Pretrained model)
 - [Data](#data)
 - [Citation](#citation)
 
