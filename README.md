@@ -4,7 +4,7 @@ induced Differential Expression Matrix), a novel computational framework that ge
 expression profiles from drug-induced transcriptomic data. TDEM circumvents experimental noise by learning target
 representations computationally rather than relying on confounded genetic perturbation data. 
 
-![Model architecture](./figures/tdem_model_architecture.png)
+![Model architecture](./figures/scheme_v1.png)
 
 
 ## Installation
